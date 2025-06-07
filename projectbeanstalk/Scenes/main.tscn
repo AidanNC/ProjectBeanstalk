@@ -1,17 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://nnpvd4xsdbni"]
+[gd_scene load_steps=4 format=3 uid="uid://nnpvd4xsdbni"]
 
 [ext_resource type="PackedScene" uid="uid://oc5bvafr0563" path="res://Scenes/player.tscn" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://drlyhyvgfgg2x" path="res://Scenes/brick.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://bc5562nq7ihn2" path="res://Scenes/brick.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://bo6h63cr12j7i" path="res://Scenes/floor.tscn" id="3_8gbba"]
 
 [node name="Main" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_jjgbg")]
 
 [node name="Brick" parent="." instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.21218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0604093, 0, -2.21218)
 
 [node name="Brick2" parent="." instance=ExtResource("2_bo1nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04573, 0, 0)
 
 [node name="Brick3" parent="." instance=ExtResource("2_bo1nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04573, 0, -2.11627)
+
+[node name="Floor" parent="." instance=ExtResource("3_8gbba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0109, -0.939078, -1.19472)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.27473, 0, -1.99038)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0974561, 0.679364, -0.727301, -0.0902264, 0.733801, 0.673346, 0.991141, 0, 0.13281, -4.18622, 2.56673, 0)
