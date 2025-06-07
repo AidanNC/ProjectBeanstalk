@@ -15,7 +15,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		camrot_h += -event.relative.x * h_sensitivity
-		camrot_v += event.relative.y * v_sensitivity
+		camrot_v += -event.relative.y * v_sensitivity
 		
 func _physics_process(delta: float) -> void:
 

@@ -1,21 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://nnpvd4xsdbni"]
 
 [ext_resource type="PackedScene" uid="uid://oc5bvafr0563" path="res://Scenes/player.tscn" id="1_jjgbg"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://drlyhyvgfgg2x" path="res://Scenes/brick.tscn" id="2_bo1nx"]
 
 [node name="Main" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_jjgbg")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32361, 0, 0)
-mesh = SubResource("BoxMesh_jjgbg")
+[node name="Brick" parent="." instance=ExtResource("2_bo1nx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.21218)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32361, 0, -4.56223)
-mesh = SubResource("BoxMesh_jjgbg")
+[node name="Brick2" parent="." instance=ExtResource("2_bo1nx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04573, 0, 0)
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243179, 0, -4.56223)
-mesh = SubResource("BoxMesh_jjgbg")
+[node name="Brick3" parent="." instance=ExtResource("2_bo1nx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04573, 0, -2.11627)
