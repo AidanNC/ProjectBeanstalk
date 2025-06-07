@@ -9,9 +9,8 @@
 
 [node name="Player" type="Node3D"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera")]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 script = ExtResource("1_v0iea")
-camera = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_f60y1")
@@ -28,4 +27,4 @@ script = ExtResource("2_cvnsp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31296, 0)
 
 [node name="Camera" type="Camera3D" parent="CharacterBody3D/Camroot/h/v"]
-transform = Transform3D(1, 0, 0, 0, 0.965231, 0.261397, 0, -0.261397, 0.965231, 0, 0, 2.26335)
+transform = Transform3D(1, 0, 0, 0, 0.965231, 0.261397, 0, -0.261397, 0.965231, 0, 0.377537, 3.72565)
