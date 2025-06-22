@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo6h63cr12j7i"]
+[gd_scene load_steps=4 format=3 uid="uid://bo6h63cr12j7i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pn5wc"]
 size = Vector3(5.4834, 0.11377, 5.59888)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ik5og"]
+albedo_color = Color(0.615686, 0.376471, 0.129412, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_ik5og"]
+material = SubResource("StandardMaterial3D_ik5og")
 
 [node name="Floor" type="Node3D"]
 
