@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://p744wjnmkr1a"]
+
+[ext_resource type="PackedScene" uid="uid://comekjv0g5su4" path="res://models/Run Cycle v.2.glb" id="1_eecy4"]
+
+[node name="Run Cycle v_2" instance=ExtResource("1_eecy4")]
+
+[node name="Skeleton3D" parent="Armature_001" index="0"]
+bones/1/rotation = Quaternion(0.0043231, -0.00536347, 2.31868e-05, 0.999976)
+bones/2/rotation = Quaternion(0.779405, -0.174113, 0.303, -0.520003)
+bones/3/rotation = Quaternion(-0.327586, -0.121486, 0.268185, 0.897778)
+bones/4/rotation = Quaternion(-0.356143, -0.182039, -0.48074, 0.780329)
+bones/6/rotation = Quaternion(-0.0191646, 0.0226915, -0.135897, 0.990278)
+bones/7/rotation = Quaternion(0.805061, 0.0192118, 0.041247, 0.591444)
+bones/8/rotation = Quaternion(0.31581, 0.64482, -0.0176406, 0.695816)
+bones/9/rotation = Quaternion(0.694145, 0.171699, 0.123276, 0.688103)
+bones/11/rotation = Quaternion(0.934219, 0.0656906, 0.241096, -0.254543)
+bones/12/rotation = Quaternion(-0.0608052, -0.0755623, -0.246177, 0.96436)
+bones/13/rotation = Quaternion(-0.469683, -0.0179932, 0.662078, 0.583718)
+bones/14/rotation = Quaternion(0.270591, -0.250458, -0.369679, 0.852871)
+bones/15/rotation = Quaternion(-0.21835, 0.244725, 0.942986, 0.0566664)
+bones/16/rotation = Quaternion(-0.190628, -0.00826288, -0.032357, 0.981094)
+bones/17/rotation = Quaternion(0.00666307, 0.0360825, -0.0433594, 0.998385)
+bones/18/rotation = Quaternion(-0.178181, -0.173917, 0.288785, 0.92445)
