@@ -2,16 +2,30 @@ extends CharacterBody3D
 @export var camera: Camera3D
 @export var speed: float = 2.0
 @export var jumpVelocity: float = 4.0
+@export var turnSpeed: float = 5.0
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var flying: bool = false
+var _theta : float
 
 func _physics_process(delta: float) -> void:
 	handleMovement()
 	handleJump()
 	applyGravity()
 	move_and_slide()
-	
 
+	rotate_player(delta)
+
+	print(velocity)
+
+
+	
+func rotate_player(delta):
+	if velocity.x != 0 or velocity.z != 0:
+		_theta = wrapf(atan2(velocity.x, velocity.z) - $BODY.rotation.y, -PI, PI)
+		$BODY.rotation.y += clamp(turnSpeed * delta, 0, abs(_theta)) * sign(_theta)
+
+		
 func applyGravity():
 	velocity.y -= gravity * get_physics_process_delta_time()
 
