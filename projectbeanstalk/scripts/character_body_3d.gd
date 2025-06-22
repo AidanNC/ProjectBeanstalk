@@ -26,6 +26,14 @@ func _process(_delta) -> void:
 	else:
 		$BODY/Wings.visible = false
 
+	#check the movement ?
+	if velocity.x != 0 or velocity.z != 0:
+		$"BODY/AnimatedRig/AnimationPlayer".play("Run CYCLE")
+	else:
+		$"BODY/AnimatedRig/AnimationPlayer".play("IDLE CYCLE")
+		
+		
+
 func rotate_player(delta):
 	if velocity.x != 0 or velocity.z != 0:
 		_theta = wrapf(atan2(velocity.x, velocity.z) - $BODY.rotation.y, -PI, PI)
