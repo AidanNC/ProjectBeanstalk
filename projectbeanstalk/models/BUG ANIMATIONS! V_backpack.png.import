@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqx6fltr4eupe"
-path.s3tc="res://.godot/imported/Run Cycle v_backpack.png-0458baab286dde490e430fb6a79ff152.s3tc.ctex"
+uid="uid://cwsreu67bvjhf"
+path.s3tc="res://.godot/imported/BUG ANIMATIONS! V_backpack.png-e666f5d4132bfebb231be44206dc6788.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://models/Run Cycle v_backpack.png"
-dest_files=["res://.godot/imported/Run Cycle v_backpack.png-0458baab286dde490e430fb6a79ff152.s3tc.ctex"]
+source_file="res://models/BUG ANIMATIONS! V_backpack.png"
+dest_files=["res://.godot/imported/BUG ANIMATIONS! V_backpack.png-e666f5d4132bfebb231be44206dc6788.s3tc.ctex"]
 
 [params]
 

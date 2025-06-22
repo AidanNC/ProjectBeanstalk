@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkekjhue7f3kq"
-path.s3tc="res://.godot/imported/Run Cycle v_Untitled_7.png-b54da62edf97fc8400ca5c3f05bae33a.s3tc.ctex"
+uid="uid://cs08m85x1wsxk"
+path.s3tc="res://.godot/imported/BUG ANIMATIONS! V_body texture.png-8ba29d40b29d75f413bd56cf12d58197.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "e17abf440fe852f3bdd983850d69bd73"
+"md5": "9371e35c49ade7d1dd3656cf74a16a85"
 }
 
 [deps]
 
-source_file="res://models/Run Cycle v_Untitled_7.png"
-dest_files=["res://.godot/imported/Run Cycle v_Untitled_7.png-b54da62edf97fc8400ca5c3f05bae33a.s3tc.ctex"]
+source_file="res://models/BUG ANIMATIONS! V_body texture.png"
+dest_files=["res://.godot/imported/BUG ANIMATIONS! V_body texture.png-8ba29d40b29d75f413bd56cf12d58197.s3tc.ctex"]
 
 [params]
 

@@ -28,9 +28,9 @@ func _process(_delta) -> void:
 
 	#check the movement ?
 	if velocity.x != 0 or velocity.z != 0:
-		$"BODY/AnimatedRig/AnimationPlayer".play("ArmatureAction_001")
+		$"BODY/AnimatedRig/AnimationPlayer".play("Run CYCLE")
 	else:
-		$"BODY/AnimatedRig/AnimationPlayer".stop()
+		$"BODY/AnimatedRig/AnimationPlayer".play("IDLE CYCLE")
 		
 		
 

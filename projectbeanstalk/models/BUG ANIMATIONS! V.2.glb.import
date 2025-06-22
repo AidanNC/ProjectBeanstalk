@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://comekjv0g5su4"
-path="res://.godot/imported/Run Cycle v.2.glb-b3802a346a6431373a7f35d2451b372d.scn"
+uid="uid://itnren3opusw"
+path="res://.godot/imported/BUG ANIMATIONS! V.2.glb-940e084e8a8695da00933eeb67873390.scn"
 
 [deps]
 
-source_file="res://models/Run Cycle v.2.glb"
-dest_files=["res://.godot/imported/Run Cycle v.2.glb-b3802a346a6431373a7f35d2451b372d.scn"]
+source_file="res://models/BUG ANIMATIONS! V.2.glb"
+dest_files=["res://.godot/imported/BUG ANIMATIONS! V.2.glb-940e084e8a8695da00933eeb67873390.scn"]
 
 [params]
 
@@ -34,7 +34,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "animations": {
-"ArmatureAction": {
+"IDLE CYCLE": {
 "save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "",
@@ -1833,7 +1833,7 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 },
-"ArmatureAction_001": {
+"Run CYCLE": {
 "save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "",

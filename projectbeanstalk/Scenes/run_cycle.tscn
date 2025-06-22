@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6aqq57o486hr"]
-
-[ext_resource type="PackedScene" uid="uid://comekjv0g5su4" path="res://models/Run Cycle v.2.glb" id="1_xxtty"]
-
-[node name="Node3D" type="Node3D"]
-
-[node name="Run Cycle v_2" parent="." instance=ExtResource("1_xxtty")]

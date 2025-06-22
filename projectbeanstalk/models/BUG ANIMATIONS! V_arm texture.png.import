@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d21yxajy2smef"
-path.s3tc="res://.godot/imported/Run Cycle v_leg.png-09dc7bc83f035b35b7cd2f1bcdbc22b6.s3tc.ctex"
+uid="uid://dyhxlhkifmby1"
+path.s3tc="res://.godot/imported/BUG ANIMATIONS! V_arm texture.png-b679a43150907bdb571c728e77cf9503.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "f832e28b6701405fb968aef858bbdec7"
+"md5": "aa3383eaab2eba3fd24458ef54408acc"
 }
 
 [deps]
 
-source_file="res://models/Run Cycle v_leg.png"
-dest_files=["res://.godot/imported/Run Cycle v_leg.png-09dc7bc83f035b35b7cd2f1bcdbc22b6.s3tc.ctex"]
+source_file="res://models/BUG ANIMATIONS! V_arm texture.png"
+dest_files=["res://.godot/imported/BUG ANIMATIONS! V_arm texture.png-b679a43150907bdb571c728e77cf9503.s3tc.ctex"]
 
 [params]
 
