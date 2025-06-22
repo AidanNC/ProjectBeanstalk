@@ -34,6 +34,7 @@ material = SubResource("StandardMaterial3D_cvnsp")
 [node name="Player_Body" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera")]
 script = ExtResource("1_v0iea")
 camera = NodePath("Camroot/h/v/Camera")
+speed = 3.5
 jumpVelocity = 7.16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player_Body"]

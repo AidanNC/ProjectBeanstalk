@@ -17,8 +17,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04573, 0, 0)
 [node name="Brick3" parent="." instance=ExtResource("2_bo1nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04573, 0, -2.11627)
 
+[node name="Brick4" parent="." instance=ExtResource("2_bo1nx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04573, 0.0917778, 7.27284)
+
 [node name="Floor" parent="." instance=ExtResource("3_8gbba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0109, -0.939078, -1.19472)
+
+[node name="Floor2" parent="." instance=ExtResource("3_8gbba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0109, -0.939078, 21.9675)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.27473, 0, -1.99038)
