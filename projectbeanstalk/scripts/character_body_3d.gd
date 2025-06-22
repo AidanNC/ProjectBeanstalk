@@ -27,8 +27,11 @@ func _process(_delta) -> void:
 		$BODY/Wings.visible = false
 
 	#check the movement ?
-	if velocity.x != 0 or velocity.z != 0:
-		$"BODY/AnimatedRig/AnimationPlayer".play("Run CYCLE")
+	if gliding:
+		$BODY/AnimatedRig/AnimationPlayer.play("GLIDE CYCLE")
+	elif velocity.x != 0 or velocity.z != 0:
+		$"BODY/AnimatedRig/AnimationPlayer".play("RUN CYCLE")
+	
 	else:
 		$"BODY/AnimatedRig/AnimationPlayer".play("IDLE CYCLE")
 		

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://itnren3opusw"
-path="res://.godot/imported/BUG ANIMATIONS! V.2.glb-940e084e8a8695da00933eeb67873390.scn"
+uid="uid://d0coj4k8sj6k8"
+path="res://.godot/imported/BUG ANIMATIONS! V.3.glb-38b8d687dc3d62f1bdf2396d85146518.scn"
 
 [deps]
 
-source_file="res://models/BUG ANIMATIONS! V.2.glb"
-dest_files=["res://.godot/imported/BUG ANIMATIONS! V.2.glb-940e084e8a8695da00933eeb67873390.scn"]
+source_file="res://models/BUG ANIMATIONS! V.3.glb"
+dest_files=["res://.godot/imported/BUG ANIMATIONS! V.3.glb-38b8d687dc3d62f1bdf2396d85146518.scn"]
 
 [params]
 
@@ -1833,7 +1833,7 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 },
-"Run CYCLE": {
+"RUN CYCLE": {
 "save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "",

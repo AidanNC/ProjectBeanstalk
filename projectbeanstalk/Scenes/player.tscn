@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cj2u231ksfaeb" path="res://scripts/character_body_3d.gd" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://dnl25i4iukeq" path="res://scripts/camroot.gd" id="2_cvnsp"]
-[ext_resource type="PackedScene" uid="uid://itnren3opusw" path="res://models/BUG ANIMATIONS! V.2.glb" id="3_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://d0coj4k8sj6k8" path="res://models/BUG ANIMATIONS! V.3.glb" id="3_6t5aa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
 
@@ -51,7 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 0.965231, 0.261397, 0, -0.261397, 0.965231, 
 [node name="BODY" type="Node3D" parent="Player_Body"]
 
 [node name="AnimatedRig" parent="Player_Body/BODY" instance=ExtResource("3_6t5aa")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.492182, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.489212, 0)
 
 [node name="Wings" type="Node3D" parent="Player_Body/BODY"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0.489154, 0.872197, 2.13816e-08, -0.872197, 0.489154, -3.8125e-08, 0, 0.465267, -1.25593)
