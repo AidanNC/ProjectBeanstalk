@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1bqg3qxxpvcq"]
+
+[ext_resource type="PackedScene" uid="uid://t38ial6bowkn" path="res://Assets/Beanstalk-col.glb" id="1_maru8"]
+[ext_resource type="PackedScene" uid="uid://cvwdjqux0samu" path="res://Assets/Leaf.glb" id="2_1nuuy"]
+
+[node name="Beanstalk" type="Node3D"]
+
+[node name="Beanstalk-col" parent="." instance=ExtResource("1_maru8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20456, 0, -0.374344)
+
+[node name="Leaf" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.382068, 0.559519, -5.05616)
+
+[node name="Leaf2" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(0.837177, 0.11301, 0.535129, -0.111084, 0.99316, -0.035954, -0.535532, -0.0293442, 0.844005, -4.43387, 3.23812, -5.05616)
+
+[node name="Leaf3" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(0.24694, 0.0626271, 0.967005, -0.111084, 0.993161, -0.035954, -0.962643, -0.09854, 0.252208, -7.29187, 5.34252, -0.586497)
+
+[node name="Leaf4" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(-0.711827, -0.0542665, 0.700255, -0.111084, 0.993161, -0.035954, -0.693515, -0.10338, -0.712986, -5.4696, 6.71454, 4.502)
+
+[node name="Leaf5" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(-0.998444, -0.0555379, 0.00487852, -0.0556787, 0.99779, -0.0362812, -0.00285283, -0.0364965, -0.99933, -0.308136, 8.78458, 4.80259)
+
+[node name="Leaf6" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(-0.424751, -0.0565563, -0.903542, -0.0556787, 0.997789, -0.0362812, 0.903596, 0.0348975, -0.426961, 3.59927, 10.9195, 1.02912)
+
+[node name="Leaf7" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(0.860702, 0.0295481, -0.508252, -0.0556787, 0.997789, -0.0362812, 0.506056, 0.0595261, 0.860444, 0.645042, 13.4616, -4.35483)
+
+[node name="Leaf8" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(0.250708, 0.0415726, 0.758563, -0.044543, 0.798231, -0.029025, -0.758394, -0.0331398, 0.252468, -4.50871, 15.7874, -0.550946)
+
+[node name="Leaf9" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(-0.759679, -0.0333541, 0.248546, -0.0445429, 0.798231, -0.029025, -0.246787, -0.0414008, -0.759857, -1.53378, 17.8198, 2.98634)
+
+[node name="Leaf10" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(0.0424064, -0.0266659, -0.79843, -0.044543, 0.798231, -0.029025, 0.797633, 0.0459941, 0.0408279, 2.53875, 20.0057, -0.923481)
+
+[node name="Leaf11" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(0.583154, 0.0428639, 0.28389, -0.0361911, 0.648563, -0.0235828, -0.284818, 0.00535095, 0.584252, -2.34002, 22.1328, -2.48181)
+
+[node name="Leaf12" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(-0.0278786, 0.0165868, 0.498947, -0.0278393, 0.498895, -0.0181406, -0.498445, -0.0287921, -0.0268935, -2.65439, 23.7245, 0.634434)
+
+[node name="Leaf13" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(-0.380666, -0.0291952, -0.218726, -0.0244986, 0.439027, -0.0159638, 0.219302, -0.00163266, -0.38145, 1.48303, 24.6719, 1.49119)
+
+[node name="Leaf14" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(0.0804417, -0.00789375, -0.340539, -0.0194875, 0.349226, -0.0126984, 0.340073, 0.0218793, 0.0798243, 0.787464, 26.0942, -1.19341)
+
+[node name="Leaf15" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(0.29952, 0.0167993, 0.00235091, -0.0167036, 0.299337, -0.0108844, -0.00295521, 0.0107361, 0.299793, -1.75241, 27.2483, -1.54256)
+
+[node name="Leaf16" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(0.154082, 0.0179351, 0.256782, -0.0167036, 0.299337, -0.0108844, -0.256865, -0.00870698, 0.15474, -2.48392, 28.6356, -0.0673194)
+
+[node name="Leaf17" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(-0.208139, -0.0037598, 0.216018, -0.0167036, 0.299337, -0.0108844, -0.215404, -0.0195792, -0.207888, -1.87097, 29.67, 1.45654)
+
+[node name="Leaf18" parent="." instance=ExtResource("2_1nuuy")]
+transform = Transform3D(-0.257298, -0.0199201, -0.152973, -0.0167036, 0.299337, -0.0108844, 0.153358, -0.000817751, -0.257838, 0.126575, 30.8078, 1.77331)
