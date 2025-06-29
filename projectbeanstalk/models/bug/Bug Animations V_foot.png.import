@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc1qwda4eqqwq"
-path.s3tc="res://.godot/imported/BUG ANIMATIONS! V_arm texture.png-b679a43150907bdb571c728e77cf9503.s3tc.ctex"
+uid="uid://cftc0go58mpvb"
+path.s3tc="res://.godot/imported/Bug Animations V_foot.png-04f72ea223165ad01132a4c6fda7f7ef.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "aa3383eaab2eba3fd24458ef54408acc"
+"md5": "0782b3049d589b745807151d14ebea13"
 }
 
 [deps]
 
-source_file="res://models/BUG ANIMATIONS! V_arm texture.png"
-dest_files=["res://.godot/imported/BUG ANIMATIONS! V_arm texture.png-b679a43150907bdb571c728e77cf9503.s3tc.ctex"]
+source_file="res://models/bug/Bug Animations V_foot.png"
+dest_files=["res://.godot/imported/Bug Animations V_foot.png-04f72ea223165ad01132a4c6fda7f7ef.s3tc.ctex"]
 
 [params]
 
