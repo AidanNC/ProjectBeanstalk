@@ -1,19 +1,17 @@
 [gd_scene load_steps=12 format=3 uid="uid://oc5bvafr0563"]
 
 [ext_resource type="Script" uid="uid://cj2u231ksfaeb" path="res://scripts/character_body_3d.gd" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://54aj07177wct" path="res://models/bug/Bug Animations V.4.glb" id="2_6t5aa"]
 [ext_resource type="Script" uid="uid://dnl25i4iukeq" path="res://scripts/camroot.gd" id="2_cvnsp"]
-[ext_resource type="PackedScene" uid="uid://d0coj4k8sj6k8" path="res://models/BUG ANIMATIONS! V.3.glb" id="3_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://dd1r37bmn20b6" path="res://models/wings/WING ANIMATION V.2.glb" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6t5aa"]
-albedo_color = Color(0.290196, 0.678431, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_vgqql"]
-material = SubResource("StandardMaterial3D_6t5aa")
+[sub_resource type="BoxShape3D" id="BoxShape3D_vgqql"]
+size = Vector3(0.5, 0.2, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6t5aa"]
-size = Vector3(1, 0.2, 2.1)
+size = Vector3(1, 0.2, 1.9)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgqql"]
 albedo_color = Color(0.968627, 1, 0.247059, 1)
@@ -33,7 +31,6 @@ material = SubResource("StandardMaterial3D_fkybt")
 script = ExtResource("1_v0iea")
 camera = NodePath("Camroot/h/v/Camera")
 speed = 3.5
-jumpVelocity = 7.16
 turnSpeed = 30.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player_Body"]
@@ -53,32 +50,31 @@ transform = Transform3D(1, 0, 0, 0, 0.965231, 0.261397, 0, -0.261397, 0.965231, 
 
 [node name="BODY" type="Node3D" parent="Player_Body"]
 
-[node name="AnimatedRig" parent="Player_Body/BODY" instance=ExtResource("3_6t5aa")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.489212, 0)
+[node name="AnimatedRig" parent="Player_Body/BODY" instance=ExtResource("2_6t5aa")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.456686, 0)
+
+[node name="OnEdgeHitBox" type="Area3D" parent="Player_Body/BODY"]
+transform = Transform3D(1, 0, 0, 0, 0.689518, -0.724268, 0, 0.724268, 0.689518, 0, -0.461834, 0.397785)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player_Body/BODY/OnEdgeHitBox"]
+shape = SubResource("BoxShape3D_vgqql")
 
 [node name="Wings" type="Node3D" parent="Player_Body/BODY"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0.489154, 0.872197, 2.13816e-08, -0.872197, 0.489154, -3.8125e-08, 0, 0.465267, -1.25593)
+transform = Transform3D(-4.37114e-08, 0, 1, 0.489154, 0.872197, 2.13816e-08, -0.872197, 0.489154, -3.8125e-08, 0, 0.331766, -0.693386)
+
+[node name="WingAnimation" parent="Player_Body/BODY/Wings" instance=ExtResource("4_vgqql")]
+transform = Transform3D(-1.39877e-08, 0.0690753, -0.312456, 9.09495e-15, 0.312456, 0.0690753, 0.32, 3.01938e-09, -1.36579e-08, -0.69878, -0.22445, 1.2362)
 
 [node name="Left_Wing" type="Area3D" parent="Player_Body/BODY/Wings"]
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Player_Body/BODY/Wings/Left_Wing"]
-transform = Transform3D(0.957814, 0.0255134, 7.10543e-15, -0.233012, 0.104875, 0, 0, 2.22045e-16, 2.08674, -0.467506, 0.446293, 1.25888)
-mesh = SubResource("BoxMesh_vgqql")
-skeleton = NodePath("../..")
-
 [node name="Col_Wing_Left" type="CollisionShape3D" parent="Player_Body/BODY/Wings/Left_Wing"]
-transform = Transform3D(0.965158, 0.261667, -1.52298e-09, -0.261667, 0.965158, -1.14378e-08, -1.52298e-09, 1.14378e-08, 1, -0.470834, 0.443242, 1.28996)
+transform = Transform3D(0.963199, 0.253875, 0.0882933, -0.265161, 0.951265, 0.157433, -0.0440219, -0.175052, 0.983575, -0.350999, 0.656916, 1.13932)
 shape = SubResource("BoxShape3D_6t5aa")
 
 [node name="Right_Wing" type="Area3D" parent="Player_Body/BODY/Wings"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player_Body/BODY/Wings/Right_Wing"]
-transform = Transform3D(0.957814, 0.0255134, 7.10543e-15, -0.233012, 0.104875, 0, 0, 2.22045e-16, 2.08674, -0.471308, 0.466649, -1.2438)
-mesh = SubResource("BoxMesh_vgqql")
-skeleton = NodePath("../..")
-
 [node name="COL_Wing_Right" type="CollisionShape3D" parent="Player_Body/BODY/Wings/Right_Wing"]
-transform = Transform3D(0.965158, 0.261667, -1.52298e-09, -0.261667, 0.965158, -1.14378e-08, -1.52298e-09, 1.14378e-08, 1, -0.470834, 0.443242, -1.27191)
+transform = Transform3D(0.962511, 0.25114, -0.102477, -0.266388, 0.946388, -0.182725, 0.0510939, 0.203173, 0.977809, -0.370265, 0.622565, -1.27191)
 shape = SubResource("BoxShape3D_6t5aa")
 
 [node name="arrowtip" type="MeshInstance3D" parent="Player_Body/BODY"]

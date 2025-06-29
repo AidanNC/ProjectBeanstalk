@@ -1,7 +1,7 @@
 extends CharacterBody3D
 @export var camera: Camera3D
 @export var speed: float = 2.0
-@export var jumpVelocity: float = 4.0
+@export var jumpVelocity: float = 10.0
 @export var turnSpeed: float = 5.0
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -36,15 +36,22 @@ func _process(_delta) -> void:
 	#check the movement ?
 	if gliding:
 		$BODY/AnimatedRig/AnimationPlayer.play("GLIDE CYCLE")
+		$BODY/Wings/WingAnimation/AnimationPlayer.play("WING CYCLE R")
+		$BODY/Wings/WingAnimation/AnimationPlayer.play("WING CYCLE L")
 	elif velocity.x != 0 or velocity.z != 0:
 		$"BODY/AnimatedRig/AnimationPlayer".play("RUN CYCLE")
+		if lastSpeed[0] == directionMap["NONE"]:
+			$BODY/AnimatedRig/AnimationPlayer.play("SLIDE STOP")
 	
 	else:
-		$"BODY/AnimatedRig/AnimationPlayer".play("IDLE CYCLE")
-	
-	
-	$BODY/Wings/Left_Wing.visible = !left_wing_disabled;
-	$BODY/Wings/Right_Wing.visible = !right_wing_disabled;
+		##check to see if we are on the edge
+		if $BODY/OnEdgeHitBox.get_overlapping_bodies().size() == 0:
+			$BODY/AnimatedRig/AnimationPlayer.play("EDGE WOBBLE CYCLE")
+		else:
+			$BODY/AnimatedRig/AnimationPlayer.play("IDLE CYCLE")
+		
+	$"BODY/Wings/WingAnimation/wing!".visible = !left_wing_disabled;
+	$"BODY/Wings/WingAnimation/wing!_001".visible = !right_wing_disabled;
 	
 		
 		
@@ -163,5 +170,4 @@ func _on_right_wing_body_entered(body: Node3D) -> void:
 
 func _on_timer_timeout() -> void:
 	can_glide = true
-	print("can glide!")
 	
