@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://130kbqlutn7u"]
+
+[ext_resource type="Script" uid="uid://cuutwcxnuyaol" path="res://scripts/CloudSpawner.gd" id="1_d7lpk"]
+[ext_resource type="PackedScene" uid="uid://bhqag5pduh0pj" path="res://Scenes/Cloud.tscn" id="2_u7mgy"]
+
+[node name="Clouds" type="Node3D"]
+script = ExtResource("1_d7lpk")
+cloud_scene = ExtResource("2_u7mgy")
+spawn_count = -5
+xmax = 102.0

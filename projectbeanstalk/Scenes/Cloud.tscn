@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhqag5pduh0pj"]
+
+[ext_resource type="Script" uid="uid://j0s2r4iayyci" path="res://scripts/CloudLogic.gd" id="1_igqeb"]
+[ext_resource type="PackedScene" uid="uid://djkfcdaay11eq" path="res://Assets/BigCloud.glb" id="2_d2ojt"]
+[ext_resource type="PackedScene" uid="uid://de2gq6dwh20st" path="res://Assets/SmallCloud.glb" id="3_yswr7"]
+
+[node name="Cloud" type="Node3D"]
+script = ExtResource("1_igqeb")
+
+[node name="BigCloud" parent="." instance=ExtResource("2_d2ojt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65423, 0.201999, 6.75843)
+
+[node name="SmallCloud" parent="." instance=ExtResource("3_yswr7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243733, 0, -0.199494)
