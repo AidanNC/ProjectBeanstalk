@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://oc5bvafr0563"]
+[gd_scene load_steps=12 format=3 uid="uid://oc5bvafr0563"]
 
 [ext_resource type="Script" uid="uid://cj2u231ksfaeb" path="res://scripts/character_body_3d.gd" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://dnl25i4iukeq" path="res://scripts/camroot.gd" id="2_cvnsp"]
-[ext_resource type="PackedScene" uid="uid://itnren3opusw" path="res://models/BUG ANIMATIONS! V.2.glb" id="3_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://d0coj4k8sj6k8" path="res://models/BUG ANIMATIONS! V.3.glb" id="3_6t5aa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
 
@@ -11,6 +11,9 @@ albedo_color = Color(0.290196, 0.678431, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vgqql"]
 material = SubResource("StandardMaterial3D_6t5aa")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6t5aa"]
+size = Vector3(1, 0.2, 2.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgqql"]
 albedo_color = Color(0.968627, 1, 0.247059, 1)
@@ -51,18 +54,32 @@ transform = Transform3D(1, 0, 0, 0, 0.965231, 0.261397, 0, -0.261397, 0.965231, 
 [node name="BODY" type="Node3D" parent="Player_Body"]
 
 [node name="AnimatedRig" parent="Player_Body/BODY" instance=ExtResource("3_6t5aa")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.492182, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.489212, 0)
 
 [node name="Wings" type="Node3D" parent="Player_Body/BODY"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0.489154, 0.872197, 2.13816e-08, -0.872197, 0.489154, -3.8125e-08, 0, 0.465267, -1.25593)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player_Body/BODY/Wings"]
-transform = Transform3D(0.957814, 0.0255134, 0, -0.233012, 0.104875, 0, 0, 0, 2.08674, -0.471308, 0.466649, -1.2438)
-mesh = SubResource("BoxMesh_vgqql")
+[node name="Left_Wing" type="Area3D" parent="Player_Body/BODY/Wings"]
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Player_Body/BODY/Wings"]
-transform = Transform3D(0.957814, 0.0255134, 0, -0.233012, 0.104875, 0, 0, 0, 2.08674, -0.467506, 0.446293, 1.25888)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Player_Body/BODY/Wings/Left_Wing"]
+transform = Transform3D(0.957814, 0.0255134, 7.10543e-15, -0.233012, 0.104875, 0, 0, 2.22045e-16, 2.08674, -0.467506, 0.446293, 1.25888)
 mesh = SubResource("BoxMesh_vgqql")
+skeleton = NodePath("../..")
+
+[node name="Col_Wing_Left" type="CollisionShape3D" parent="Player_Body/BODY/Wings/Left_Wing"]
+transform = Transform3D(0.965158, 0.261667, -1.52298e-09, -0.261667, 0.965158, -1.14378e-08, -1.52298e-09, 1.14378e-08, 1, -0.470834, 0.443242, 1.28996)
+shape = SubResource("BoxShape3D_6t5aa")
+
+[node name="Right_Wing" type="Area3D" parent="Player_Body/BODY/Wings"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player_Body/BODY/Wings/Right_Wing"]
+transform = Transform3D(0.957814, 0.0255134, 7.10543e-15, -0.233012, 0.104875, 0, 0, 2.22045e-16, 2.08674, -0.471308, 0.466649, -1.2438)
+mesh = SubResource("BoxMesh_vgqql")
+skeleton = NodePath("../..")
+
+[node name="COL_Wing_Right" type="CollisionShape3D" parent="Player_Body/BODY/Wings/Right_Wing"]
+transform = Transform3D(0.965158, 0.261667, -1.52298e-09, -0.261667, 0.965158, -1.14378e-08, -1.52298e-09, 1.14378e-08, 1, -0.470834, 0.443242, -1.27191)
+shape = SubResource("BoxShape3D_6t5aa")
 
 [node name="arrowtip" type="MeshInstance3D" parent="Player_Body/BODY"]
 transform = Transform3D(0.259313, 0, 0, 0, -1.13349e-08, -0.259313, 0, 0.259313, -1.13349e-08, 0, 1.37252, 0)
@@ -73,3 +90,11 @@ skeleton = NodePath("../..")
 transform = Transform3D(-2.19467e-08, 0, 0.0748483, 0, 0.0427573, 0, -0.502082, 0, -3.27172e-09, 0, 1.35068, -0.330581)
 mesh = SubResource("BoxMesh_x3wgy")
 skeleton = NodePath("../..")
+
+[node name="GlideTimer" type="Timer" parent="Player_Body"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="Player_Body/BODY/Wings/Left_Wing" to="Player_Body" method="_on_left_wing_body_entered"]
+[connection signal="body_entered" from="Player_Body/BODY/Wings/Right_Wing" to="Player_Body" method="_on_right_wing_body_entered"]
+[connection signal="timeout" from="Player_Body/GlideTimer" to="Player_Body" method="_on_timer_timeout"]

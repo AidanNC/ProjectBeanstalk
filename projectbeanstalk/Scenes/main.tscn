@@ -32,6 +32,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.27473, 0, -1.99038)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.825595, -0.433244, 0.361515, -0.0902264, 0.733801, 0.673346, -0.557003, 0.523293, -0.644913, 3.35065, 8.65789, -10.7358)
+shadow_enabled = true
 
 [node name="Beanstalk" parent="." instance=ExtResource("4_jjvhh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.943906, 0, 9.7772)

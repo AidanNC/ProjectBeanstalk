@@ -8,7 +8,11 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var flying: bool = false
 var _theta: float
 var gliding: bool = false
+var can_glide: bool = false
 var can_jump: bool = true
+
+var left_wing_disabled = false
+var right_wing_disabled = false
 
 var lastSpeed = [0]
 
@@ -17,10 +21,11 @@ func _physics_process(delta: float) -> void:
 	handleJump()
 	applyGravity(delta)
 	move_and_slide()
+	handleWings()
+	handleGlideTiming()
 
 	rotate_player(delta)
 
-	print(velocity)
 
 func _process(_delta) -> void:
 	if gliding:
@@ -29,10 +34,18 @@ func _process(_delta) -> void:
 		$BODY/Wings.visible = false
 
 	#check the movement ?
-	if velocity.x != 0 or velocity.z != 0:
-		$"BODY/AnimatedRig/AnimationPlayer".play("Run CYCLE")
+	if gliding:
+		$BODY/AnimatedRig/AnimationPlayer.play("GLIDE CYCLE")
+	elif velocity.x != 0 or velocity.z != 0:
+		$"BODY/AnimatedRig/AnimationPlayer".play("RUN CYCLE")
+	
 	else:
 		$"BODY/AnimatedRig/AnimationPlayer".play("IDLE CYCLE")
+	
+	
+	$BODY/Wings/Left_Wing.visible = !left_wing_disabled;
+	$BODY/Wings/Right_Wing.visible = !right_wing_disabled;
+	
 		
 		
 
@@ -56,7 +69,10 @@ func handleJump():
 		velocity.y = jumpVelocity
 		can_jump = false
 	if Input.is_action_pressed("jump"):
-		gliding = true
+		if can_glide:
+			gliding = true
+		else: 
+			gliding = false
 	else:
 		gliding = false
 		
@@ -91,22 +107,26 @@ func handleMovement():
 		move_direction += Vector3(camera_direction.x, 0, camera_direction.z)
 		storeSpeed(directionMap["BACKWARD"])
 	# Pressing A moves left on XZ plane in the direction the camera is facing
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("move_left") && !left_wing_disabled:
 		move_direction += Vector3(-camera_direction.z, 0, camera_direction.x)
 		storeSpeed(directionMap["LEFT"])
 	# Pressing D moves right on XZ plane in the direction the camera is facing
-	if Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("move_right") && !right_wing_disabled:
 		move_direction += Vector3(camera_direction.z, 0, -camera_direction.x)
 		storeSpeed(directionMap["RIGHT"])
 	# Not pressing any movement keys
 	if not Input.is_action_pressed("move_forward") and not Input.is_action_pressed("move_back") and not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
 		storeSpeed(directionMap["NONE"])
 		
-	#not sure if this is doing anything
+	##if both wings are gone then you can't move at all
+	if left_wing_disabled && right_wing_disabled:
+		storeSpeed(directionMap["NONE"])
+		move_direction = Vector3.ZERO
 	
 	var acc = 0.4
 	if lastSpeed[0] == directionMap["NONE"]:
 		acc = max(0, speed-0.01*lastSpeed.size())
+		
 	
 	move_direction = move_direction.normalized() * acc
 	velocity += move_direction
@@ -114,3 +134,34 @@ func handleMovement():
 	velocity.x = round(velocity.x * 0.98 * 100)/100
 	velocity.z = max(abs(velocity.z)-0.1, 0) * sign(velocity.z)
 	velocity.x = max(abs(velocity.x)-0.1, 0) * sign(velocity.x)
+
+
+func handleGlideTiming():
+	if !is_on_floor() && $GlideTimer.is_stopped():
+		$GlideTimer.start()
+	if is_on_floor():
+		can_glide = false
+		$GlideTimer.stop()
+		
+		
+	
+func handleWings():
+	if is_on_floor():
+		left_wing_disabled = false
+		right_wing_disabled = false
+	
+
+func _on_left_wing_body_entered(body: Node3D) -> void:
+	if gliding:
+		left_wing_disabled = true
+
+
+func _on_right_wing_body_entered(body: Node3D) -> void:
+	if gliding:
+		right_wing_disabled = true
+
+
+func _on_timer_timeout() -> void:
+	can_glide = true
+	print("can glide!")
+	
