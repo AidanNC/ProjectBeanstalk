@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://nnpvd4xsdbni"]
+[gd_scene load_steps=13 format=3 uid="uid://nnpvd4xsdbni"]
 
 [ext_resource type="PackedScene" uid="uid://oc5bvafr0563" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://drlyhyvgfgg2x" path="res://Scenes/brick.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://bo6h63cr12j7i" path="res://Scenes/floor.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://b1bqg3qxxpvcq" path="res://Scenes/Beanstalk.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://130kbqlutn7u" path="res://Scenes/Clouds.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://cjvvuwrokooxs" path="res://Scenes/Rock.tscn" id="6_6bp64"]
 
 [sub_resource type="Gradient" id="Gradient_21xkr"]
 colors = PackedColorArray(0.364706, 1, 1, 1, 1, 1, 1, 1)
@@ -35,6 +36,7 @@ reflected_light_source = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.958184, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_jjgbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.926619, 30.6345, 11.3572)
 
 [node name="Brick" parent="." instance=ExtResource("2_bo1nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79273, 1.60056, -2.3975)
@@ -70,3 +72,13 @@ xmin = -40.0
 xmax = 40.0
 zmin = -40.0
 zmax = 40.0
+
+[node name="Rock" parent="." instance=ExtResource("6_6bp64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26538, 29.58, 11.9012)
+
+[node name="Rock2" parent="." instance=ExtResource("6_6bp64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72405, 32.646, 5.68466)
+isSmallRock = false
+
+[node name="Rock3" parent="." instance=ExtResource("6_6bp64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32921, 35.7942, 10.0364)

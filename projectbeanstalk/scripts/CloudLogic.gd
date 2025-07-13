@@ -20,7 +20,6 @@ func _ready() -> void:
 		small_cloud.visible = true
 	
 	var speed = rng.randf_range(-4.0, 4.0)
-	print(speed)
 	
 	velocity = Vector3(speed, 0, 0)
 
