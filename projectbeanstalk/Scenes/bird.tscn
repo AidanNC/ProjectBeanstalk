@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://38uwn5q3rg8u"]
+
+[ext_resource type="PackedScene" uid="uid://dyr2bw0xbpvak" path="res://models/bird/Beanstalk Bird.glb" id="1_i8bdw"]
+[ext_resource type="Script" uid="uid://cqkahivk2mwu1" path="res://scripts/bird.gd" id="1_mcegt"]
+
+[sub_resource type="GDScript" id="GDScript_dnvpi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mcegt"]
+
+[node name="Bird" type="Node3D"]
+script = ExtResource("1_mcegt")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="BeanstalkBird" parent="." instance=ExtResource("1_i8bdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.293888, -1.23976, -0.220094)
+script = SubResource("GDScript_dnvpi")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(-8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0, 2, 0.253521, 0.442406, 0)
+shape = SubResource("CapsuleShape3D_mcegt")
