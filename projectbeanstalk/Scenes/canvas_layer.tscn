@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b265xckeb2fcf"]
+
+[ext_resource type="Script" uid="uid://ddbg7yn1ci08u" path="res://scripts/height_indicator.gd" id="1_5oaki"]
+[ext_resource type="FontFile" uid="uid://bos5q0b0e2est" path="res://Assets/Sour_Gummy/SourGummy-VariableFont_wdth,wght.ttf" id="2_q85f0"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_5oaki")
+
+[node name="Height_Indicator" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 0.142
+anchor_bottom = 0.167
+offset_left = 26.0
+offset_top = 24.0
+offset_right = 25.36
+offset_bottom = 23.64
+theme_override_colors/font_color = Color(0.875221, 0.286342, 0.583227, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_q85f0")
+theme_override_font_sizes/font_size = 64
+text = "
+"
