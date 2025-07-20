@@ -19,5 +19,5 @@ script = SubResource("GDScript_dnvpi")
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(-8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0, 2, 0.253521, 0.442406, 0)
+transform = Transform3D(-8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0, 2, 0.253521, 0.0363436, -0.220196)
 shape = SubResource("CapsuleShape3D_mcegt")
