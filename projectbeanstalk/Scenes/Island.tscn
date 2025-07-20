@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d02723b1qhjtf"]
+
+[ext_resource type="ArrayMesh" uid="uid://cgvjaqvhx7iay" path="res://Assets/IslandMesh.res" id="1_3es8w"]
+[ext_resource type="Material" uid="uid://crcl3tsbj8658" path="res://Assets/RockMaterial.tres" id="2_gljuf"]
+
+[node name="Island" type="Node3D"]
+
+[node name="IslandMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0)
+mesh = ExtResource("1_3es8w")
+surface_material_override/0 = ExtResource("2_gljuf")
