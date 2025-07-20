@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://di6xviovuc8rg"]
+
+[ext_resource type="Script" uid="uid://b63k28tc6v3ub" path="res://scripts/RockLogic.gd" id="1_ckgax"]
+[ext_resource type="PackedScene" uid="uid://cdf3br7poa7ed" path="res://Assets/rock1.glb" id="2_iskfe"]
+
+[node name="Rock" type="Node3D"]
+script = ExtResource("1_ckgax")
+
+[node name="rock" parent="." instance=ExtResource("2_iskfe")]
+script = ExtResource("1_ckgax")
