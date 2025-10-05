@@ -45,7 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.958184, 0)
 [node name="CanvasLayer" parent="." instance=ExtResource("1_ynf5e")]
 
 [node name="Player" parent="CanvasLayer" instance=ExtResource("1_jjgbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5676, 7.71386, 28.1869)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0804, 18.6409, -39.7303)
 
 [node name="Brick" parent="." instance=ExtResource("2_bo1nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79273, 1.60056, -2.3975)
