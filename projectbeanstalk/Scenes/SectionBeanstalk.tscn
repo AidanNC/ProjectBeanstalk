@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://g5fx760s7lxi"]
+[gd_scene load_steps=6 format=3 uid="uid://c5ojh6iq3cxh5"]
 
 [ext_resource type="PackedScene" uid="uid://b1bqg3qxxpvcq" path="res://Scenes/Beanstalk.tscn" id="5_rg10a"]
 [ext_resource type="PackedScene" uid="uid://oc5bvafr0563" path="res://Scenes/player.tscn" id="6_ob4ic"]
 [ext_resource type="PackedScene" uid="uid://di6xviovuc8rg" path="res://Scenes/Rocks/SmallRock.tscn" id="7_ia4yr"]
 [ext_resource type="PackedScene" uid="uid://cjvvuwrokooxs" path="res://Scenes/Rocks/BigRock.tscn" id="8_hsav5"]
-[ext_resource type="PackedScene" uid="uid://bhbmllx1sm6w1" path="res://Scenes/Island.tscn" id="9_v88fb"]
+[ext_resource type="PackedScene" uid="uid://d02723b1qhjtf" path="res://Scenes/Island.tscn" id="9_v88fb"]
 
 [node name="BeanstalkNew" type="Node3D"]
 
