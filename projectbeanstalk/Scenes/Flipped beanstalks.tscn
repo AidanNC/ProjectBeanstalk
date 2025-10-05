@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnyvjcv8rnwjn"]
+[gd_scene load_steps=6 format=3 uid="uid://bnyvjcv8rnwjn"]
 
 [ext_resource type="PackedScene" uid="uid://t38ial6bowkn" path="res://Assets/Beanstalk-col.glb" id="1_wsodf"]
 [ext_resource type="PackedScene" uid="uid://cdf3br7poa7ed" path="res://Assets/rock1.glb" id="2_1to5d"]
-[ext_resource type="PackedScene" uid="uid://oc5bvafr0563" path="res://Scenes/player.tscn" id="3_wsodf"]
 [ext_resource type="PackedScene" uid="uid://38uwn5q3rg8u" path="res://Scenes/bird.tscn" id="4_1to5d"]
 [ext_resource type="PackedScene" uid="uid://dj10cvavtpp5l" path="res://Assets/rock2.glb" id="4_whftb"]
 [ext_resource type="PackedScene" uid="uid://cvwdjqux0samu" path="res://Assets/Leaf.glb" id="5_m4efn"]
@@ -26,9 +25,6 @@ transform = Transform3D(0.446967, -0.866166, -0.223556, 0.687004, 0.492431, -0.5
 
 [node name="Beanstalk-col2" parent="." instance=ExtResource("1_wsodf")]
 transform = Transform3D(0.221802, -0.690618, -0.688369, 0.712278, 0.596877, -0.369321, 0.665931, -0.408394, 0.6243, -16.7746, 0.220081, -1.48791)
-
-[node name="Player" parent="." instance=ExtResource("3_wsodf")]
-transform = Transform3D(0.997323, 0, 0.0731163, 0, 1, 0, -0.0731163, 0, 0.997323, 5.38654, 8.44643, 1.31748)
 
 [node name="Bird" parent="." instance=ExtResource("4_1to5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7097, 0, 0)
