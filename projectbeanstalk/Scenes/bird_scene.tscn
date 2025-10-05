@@ -129,4 +129,5 @@ bob_height = 1.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.3339, -8.24554)
 
 [node name="Rock4" parent="." instance=ExtResource("5_kl3n5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.664, 0.287022)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.88182, 0.287022)
+bob_height = 0.75
