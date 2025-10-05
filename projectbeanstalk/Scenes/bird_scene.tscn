@@ -1,18 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://n74yocv1m0du"]
 
-[ext_resource type="PackedScene" uid="uid://dj10cvavtpp5l" path="res://Assets/rock2.glb" id="1_0glk1"]
 [ext_resource type="PackedScene" uid="uid://38uwn5q3rg8u" path="res://Scenes/bird.tscn" id="3_jknl3"]
 [ext_resource type="PackedScene" uid="uid://cdf3br7poa7ed" path="res://Assets/rock1.glb" id="4_h8rrd"]
 [ext_resource type="PackedScene" uid="uid://b1bqg3qxxpvcq" path="res://Scenes/Beanstalk.tscn" id="5_jknl3"]
+[ext_resource type="PackedScene" uid="uid://di6xviovuc8rg" path="res://Scenes/Rocks/SmallRock.tscn" id="5_kl3n5"]
 [ext_resource type="PackedScene" uid="uid://djkfcdaay11eq" path="res://Assets/BigCloud.glb" id="6_h8rrd"]
 
 [node name="BirdScene" type="Node3D"]
-
-[node name="rock2" parent="." instance=ExtResource("1_0glk1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.02915, -30.1654)
-
-[node name="rock3" parent="." instance=ExtResource("1_0glk1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.07741, -16.7323)
 
 [node name="Bird" parent="." instance=ExtResource("3_jknl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.67343, -3.11213, 8.90949)
@@ -26,17 +20,17 @@ radius = 7.0
 
 [node name="Bird3" parent="." instance=ExtResource("3_jknl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.75652, -1.80859, 44.0938)
-speed = 2.0
+speed = 5.0
 radius = 6.0
 
 [node name="Bird4" parent="." instance=ExtResource("3_jknl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.18345, -1.68326, 56.1678)
-speed = 2.0
+speed = 6.0
 radius = 4.0
 
 [node name="Bird5" parent="." instance=ExtResource("3_jknl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.28382, -2.5021, 65.3113)
-speed = 1.0
+speed = 3.0
 radius = 3.0
 
 [node name="Bird6" parent="." instance=ExtResource("3_jknl3")]
@@ -46,8 +40,8 @@ radius = 3.0
 
 [node name="Bird20" parent="." instance=ExtResource("3_jknl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.40672, -1.18056, 83.885)
-speed = 1.0
-radius = 3.0
+speed = 2.0
+radius = 10.0
 
 [node name="Bird19" parent="." instance=ExtResource("3_jknl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6705.58, 0.196671, 83.885)
@@ -61,37 +55,35 @@ radius = 3.0
 
 [node name="Bird8" parent="." instance=ExtResource("3_jknl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.84286, 3.03808, 87.5137)
-speed = 1.0
+speed = 3.0
 radius = 3.0
 
 [node name="Bird9" parent="." instance=ExtResource("3_jknl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10943, 4.83223, 87.5137)
-speed = 1.0
 radius = 3.0
 
 [node name="Bird10" parent="." instance=ExtResource("3_jknl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10943, 7.6073, 99.742)
-speed = 1.0
+speed = 5.0
 radius = 3.0
 
 [node name="Bird11" parent="." instance=ExtResource("3_jknl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13319, 10.1648, 99.742)
-speed = 1.0
-radius = 3.0
+speed = 10.0
+radius = 2.0
 
 [node name="Bird12" parent="." instance=ExtResource("3_jknl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13319, 12.9374, 90.2589)
-speed = 1.0
-radius = 3.0
+speed = 2.0
 
 [node name="Bird13" parent="." instance=ExtResource("3_jknl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.785, 14.2124, 90.2589)
 speed = 1.0
-radius = 3.0
+radius = 2.0
 
 [node name="Bird14" parent="." instance=ExtResource("3_jknl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.785, 18.7741, 102.393)
-speed = 1.0
+speed = 5.0
 radius = 3.0
 
 [node name="Bird15" parent="." instance=ExtResource("3_jknl3")]
@@ -122,3 +114,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8844, 26.4357, 95.2781)
 
 [node name="BigCloud" parent="Beanstalk" instance=ExtResource("6_h8rrd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.07986, 0, 6.74947)
+
+[node name="Rock" parent="." instance=ExtResource("5_kl3n5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.65567, -28.5329)
+bob_speed = 2.0
+bob_height = 1.0
+
+[node name="Rock2" parent="." instance=ExtResource("5_kl3n5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.11712, -17.629)
+bob_speed = 1.5
+bob_height = 1.0
+
+[node name="Rock3" parent="." instance=ExtResource("5_kl3n5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.3339, -8.24554)
+
+[node name="Rock4" parent="." instance=ExtResource("5_kl3n5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.664, 0.287022)

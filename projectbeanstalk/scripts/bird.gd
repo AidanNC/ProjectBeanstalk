@@ -24,6 +24,8 @@ func _physics_process(delta: float) -> void:
 	
 func _ready() -> void:
 	$BeanstalkBird/AnimationPlayer.play('ArmatureAction')
+	var anim_length = $BeanstalkBird/AnimationPlayer.get_animation('ArmatureAction').length
+	$BeanstalkBird/AnimationPlayer.seek(randf() * anim_length)
 	centerX = global_position.x - radius
 	centerZ = global_position.z
 	
