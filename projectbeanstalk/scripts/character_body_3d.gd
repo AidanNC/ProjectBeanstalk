@@ -10,11 +10,16 @@ var _theta: float
 var gliding: bool = false
 var can_glide: bool = false
 var can_jump: bool = true
+var is_running: bool = false
 
 var left_wing_disabled = false
 var right_wing_disabled = false
 
+
 var lastSpeed = [0]
+
+#for rng 
+var rng = RandomNumberGenerator.new()
 
 func _physics_process(delta: float) -> void:
 	handleMovement()
@@ -38,12 +43,23 @@ func _process(_delta) -> void:
 		$BODY/AnimatedRig/AnimationPlayer.play("GLIDE CYCLE")
 		$BODY/Wings/WingAnimation/AnimationPlayer.play("WING CYCLE R")
 		$BODY/Wings/WingAnimation/AnimationPlayer.play("WING CYCLE L")
+		$Sound/Run.stop()
+		is_running = false
 	elif velocity.x != 0 or velocity.z != 0:
 		$"BODY/AnimatedRig/AnimationPlayer".play("RUN CYCLE")
+		if !is_running:
+			$Sound/Run.play()
+		
+		is_running = true
+		
 		if lastSpeed[0] == directionMap["NONE"]:
 			$BODY/AnimatedRig/AnimationPlayer.play("SLIDE STOP")
+			$Sound/Run.stop()
+			is_running = false;
 	
 	else:
+		$Sound/Run.stop()
+		is_running = false;
 		##check to see if we are on the edge
 		if $BODY/OnEdgeHitBox.get_overlapping_bodies().size() == 0:
 			$BODY/AnimatedRig/AnimationPlayer.play("EDGE WOBBLE CYCLE")
@@ -75,6 +91,11 @@ func handleJump():
 	if can_jump && Input.is_action_just_pressed("jump"):
 		velocity.y = jumpVelocity
 		can_jump = false
+		#randomly play one of the jump sounds
+		if rng.randi_range(0,2) == 1: 
+			$Sound/Jump1.play(0.03)
+		else:
+			$Sound/Jump2.play(0.07)
 	if Input.is_action_pressed("jump"):
 		if can_glide:
 			gliding = true
