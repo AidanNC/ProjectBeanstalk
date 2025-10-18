@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://oc5bvafr0563"]
+[gd_scene load_steps=18 format=3 uid="uid://oc5bvafr0563"]
 
 [ext_resource type="Script" uid="uid://cj2u231ksfaeb" path="res://scripts/character_body_3d.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://54aj07177wct" path="res://models/bug/Bug Animations V.4.glb" id="2_6t5aa"]
@@ -6,7 +6,10 @@
 [ext_resource type="AudioStream" uid="uid://7daq3yfilbth" path="res://Assets/jump2.wav" id="2_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://n46yhbgx7whl" path="res://Assets/jump1.wav" id="3_3smsa"]
 [ext_resource type="PackedScene" uid="uid://dd1r37bmn20b6" path="res://models/wings/WING ANIMATION V.2.glb" id="4_vgqql"]
+[ext_resource type="AudioStream" uid="uid://cenvyfl10wcwo" path="res://Assets/RunGrass.wav" id="5_tx1dd"]
+[ext_resource type="AudioStream" uid="uid://db5ppjmfu6gms" path="res://Assets/RunLeaf.wav" id="6_gymyn"]
 [ext_resource type="AudioStream" uid="uid://dkbb1r25ejn78" path="res://Assets/run.wav" id="7_3smsa"]
+[ext_resource type="AudioStream" uid="uid://770xkt3qpg5l" path="res://Assets/RunRock.wav" id="7_pu2lt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
 
@@ -95,6 +98,15 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Sound" type="Node" parent="Player_Body"]
+
+[node name="RunGrass" type="AudioStreamPlayer" parent="Player_Body/Sound"]
+stream = ExtResource("5_tx1dd")
+
+[node name="RunLeaf" type="AudioStreamPlayer" parent="Player_Body/Sound"]
+stream = ExtResource("6_gymyn")
+
+[node name="RunRock" type="AudioStreamPlayer" parent="Player_Body/Sound"]
+stream = ExtResource("7_pu2lt")
 
 [node name="Jump1" type="AudioStreamPlayer" parent="Player_Body/Sound"]
 stream = ExtResource("3_3smsa")
