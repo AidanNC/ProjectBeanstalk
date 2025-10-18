@@ -4,13 +4,24 @@ extends CharacterBody3D
 @export var jumpVelocity: float = 10.0
 @export var turnSpeed: float = 5.0
 
+@onready var anim = $"BODY/AnimatedRig/AnimationPlayer"
+@onready var run_players = {
+	"GRASS": $Sound/RunGrass,
+	"LEAF":  $Sound/RunLeaf,
+	"ROCK":  $Sound/RunRock
+}
+@onready var legacy_run = $Sound/Run  # old one you’re phasing out
+
+var current_surface := ""
+var current_player = null
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var flying: bool = false
 var _theta: float
 var gliding: bool = false
 var can_glide: bool = false
 var can_jump: bool = true
-var is_running: bool = false
+var is_running := false
 
 var left_wing_disabled = false
 var right_wing_disabled = false
@@ -26,51 +37,72 @@ func _physics_process(delta: float) -> void:
 	handleJump()
 	applyGravity(delta)
 	move_and_slide()
+	handle_sounds_and_animations()
 	handleWings()
 	handleGlideTiming()
 
 	rotate_player(delta)
 
 
-func _process(_delta) -> void:
+func _process(_delta: float) -> void:
 	if gliding:
 		$BODY/Wings.visible = true
 	else:
 		$BODY/Wings.visible = false
-
-	#check the movement ?
+		
+	$"BODY/Wings/WingAnimation/wing!".visible = !left_wing_disabled
+	$"BODY/Wings/WingAnimation/wing!_001".visible = !right_wing_disabled
+	
 	if gliding:
-		$BODY/AnimatedRig/AnimationPlayer.play("GLIDE CYCLE")
+		anim.play("GLIDE CYCLE")
 		$BODY/Wings/WingAnimation/AnimationPlayer.play("WING CYCLE R")
 		$BODY/Wings/WingAnimation/AnimationPlayer.play("WING CYCLE L")
-		$Sound/Run.stop()
-		is_running = false
 	elif velocity.x != 0 or velocity.z != 0:
-		$"BODY/AnimatedRig/AnimationPlayer".play("RUN CYCLE")
-		if !is_running:
-			$Sound/Run.play()
-		
-		is_running = true
-		
+		anim.play("RUN CYCLE")
 		if lastSpeed[0] == directionMap["NONE"]:
-			$BODY/AnimatedRig/AnimationPlayer.play("SLIDE STOP")
-			$Sound/Run.stop()
-			is_running = false;
-	
+			anim.play("SLIDE STOP")
 	else:
-		$Sound/Run.stop()
-		is_running = false;
-		##check to see if we are on the edge
 		if $BODY/OnEdgeHitBox.get_overlapping_bodies().size() == 0:
-			$BODY/AnimatedRig/AnimationPlayer.play("EDGE WOBBLE CYCLE")
+			anim.play("EDGE WOBBLE CYCLE")
 		else:
-			$BODY/AnimatedRig/AnimationPlayer.play("IDLE CYCLE")
-		
-	$"BODY/Wings/WingAnimation/wing!".visible = !left_wing_disabled;
-	$"BODY/Wings/WingAnimation/wing!_001".visible = !right_wing_disabled;
-	
+			anim.play("IDLE CYCLE")
 		
 		
+func handle_sounds_and_animations():
+	# Gliding logic
+	if gliding:
+		stop_all_run_sounds()
+		is_running = false
+		return
+
+	# On floor logic
+	elif velocity.x != 0 or velocity.z != 0:
+		var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)
+		
+		# Player is running
+		if horizontal_velocity.length() > 0.1:
+			if !is_running:
+				is_running = true
+
+			var collision = get_last_slide_collision()
+			if collision and collision.get_collider():
+				current_surface = collision.get_collider().get_owner().name
+				# print(current_surface) # I'll comment this out as it's likely for debugging
+				set_running_sound(current_surface)
+			else:
+				stop_all_run_sounds()
+
+		# Player is stopping or stopped
+		else:
+			if is_running:
+				is_running = false
+				stop_all_run_sounds()
+	# Player is in the air
+	else:
+		if is_running:
+			is_running = false
+			stop_all_run_sounds()
+
 
 func rotate_player(delta):
 	if velocity.x != 0 or velocity.z != 0:
@@ -84,6 +116,23 @@ func applyGravity(delta):
 	if gliding:
 		velocity.y = max(velocity.y, -1)
 	
+func stop_all_run_sounds():
+	for p in run_players.values(): if p.playing: p.stop()
+	if legacy_run and legacy_run.playing: legacy_run.stop()
+
+func set_running_sound(surface: String):
+	var key = surface.to_upper()
+	var next_player = null
+	if key.contains("BEANSTALK") or key.contains("FLOOR"): next_player = run_players["GRASS"]
+	elif key.contains("LEAF"):  next_player = run_players["LEAF"]
+	elif key.contains("ROCK") or key.contains("ISLAND"):  next_player = run_players["ROCK"]
+
+	if next_player != current_player:
+		if current_player: current_player.stop()
+		current_player = next_player
+		
+	if current_player and !current_player.playing:
+		current_player.play()
 
 func handleJump():
 	if !can_jump && is_on_floor():
@@ -179,12 +228,12 @@ func handleWings():
 		right_wing_disabled = false
 	
 
-func _on_left_wing_body_entered(body: Node3D) -> void:
+func _on_left_wing_body_entered(_body: Node3D) -> void:
 	if gliding:
 		left_wing_disabled = true
 
 
-func _on_right_wing_body_entered(body: Node3D) -> void:
+func _on_right_wing_body_entered(_body: Node3D) -> void:
 	if gliding:
 		right_wing_disabled = true
 

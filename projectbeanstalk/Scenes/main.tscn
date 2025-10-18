@@ -43,7 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.958184, 0)
 [node name="CanvasLayer" parent="." instance=ExtResource("1_ynf5e")]
 
 [node name="Player" parent="CanvasLayer" instance=ExtResource("1_jjgbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.214, 230, 45)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.214, 131.292, -2.77868)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("3_jkdf5")
