@@ -146,7 +146,7 @@ func handleJump():
 		else:
 			$Sound/Jump2.play(0.07)
 	if Input.is_action_pressed("jump"):
-		if can_glide:
+		if can_glide and !(left_wing_disabled and right_wing_disabled):
 			gliding = true
 		else: 
 			gliding = false
@@ -160,6 +160,7 @@ const directionMap = {
 	"BACKWARD": 2,
 	"LEFT": 3, 
 	"RIGHT": 4, 
+	"FREE_FALL": 5
 }
 		
 func storeSpeed(direction: int):
@@ -195,14 +196,15 @@ func handleMovement():
 	if not Input.is_action_pressed("move_forward") and not Input.is_action_pressed("move_back") and not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
 		storeSpeed(directionMap["NONE"])
 		
-	##if both wings are gone then you can't move at all
+	##if both wings are gone then you can only move very slowly
 	if left_wing_disabled && right_wing_disabled:
-		storeSpeed(directionMap["NONE"])
-		move_direction = Vector3.ZERO
+		storeSpeed(directionMap["FREE_FALL"])
 	
 	var acc = 0.4
 	if lastSpeed[0] == directionMap["NONE"]:
 		acc = max(0, speed-0.01*lastSpeed.size())
+	elif lastSpeed[0] == directionMap["FREE_FALL"]:
+		acc = 0.2 #you move very slowly if both wings are broken
 		
 	
 	move_direction = move_direction.normalized() * acc
