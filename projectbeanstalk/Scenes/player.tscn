@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://oc5bvafr0563"]
+[gd_scene load_steps=20 format=3 uid="uid://oc5bvafr0563"]
 
 [ext_resource type="Script" uid="uid://cj2u231ksfaeb" path="res://scripts/character_body_3d.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://54aj07177wct" path="res://models/bug/Bug Animations V.4.glb" id="2_6t5aa"]
 [ext_resource type="Script" uid="uid://dnl25i4iukeq" path="res://scripts/camroot.gd" id="2_cvnsp"]
 [ext_resource type="AudioStream" uid="uid://7daq3yfilbth" path="res://Assets/jump2.wav" id="2_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://n46yhbgx7whl" path="res://Assets/jump1.wav" id="3_3smsa"]
+[ext_resource type="Script" uid="uid://b45u04hym3w4k" path="res://Scenes/camera.gd" id="3_gymyn"]
 [ext_resource type="PackedScene" uid="uid://dd1r37bmn20b6" path="res://models/wings/WING ANIMATION V.2.glb" id="4_vgqql"]
 [ext_resource type="AudioStream" uid="uid://cenvyfl10wcwo" path="res://Assets/RunGrass.wav" id="5_tx1dd"]
 [ext_resource type="AudioStream" uid="uid://db5ppjmfu6gms" path="res://Assets/RunLeaf.wav" id="6_gymyn"]
@@ -12,6 +13,10 @@
 [ext_resource type="AudioStream" uid="uid://770xkt3qpg5l" path="res://Assets/RunRock.wav" id="7_pu2lt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_gymyn"]
+dof_blur_far_enabled = true
+dof_blur_near_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vgqql"]
 size = Vector3(0.5, 0.2, 0.2)
@@ -53,6 +58,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31296, 0)
 
 [node name="Camera" type="Camera3D" parent="Player_Body/Camroot/h/v"]
 transform = Transform3D(1, 0, 0, 0, 0.965231, 0.261397, 0, -0.261397, 0.965231, 0, 0.377537, 3.72565)
+attributes = SubResource("CameraAttributesPractical_gymyn")
+script = ExtResource("3_gymyn")
+
+[node name="BlurRange" type="RayCast3D" parent="Player_Body/Camroot/h/v/Camera"]
+target_position = Vector3(0, -1, -2)
 
 [node name="BODY" type="Node3D" parent="Player_Body"]
 
